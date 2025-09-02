@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Grid from "tui-grid";
 import "tui-grid/dist/tui-grid.css";
 import BootStrapModal from "./components/BootStrapModal";
-import { Offcanvas } from ".components/OffCanvas";
+import { Offcanvas } from "./components/OffCanvas";
 //import { Menu } from "lucide-react";
 
 function App() {
