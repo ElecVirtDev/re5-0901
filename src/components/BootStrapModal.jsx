@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { Modal } from "bootstrap";
+import { Modal } from "bootstrap"; // ✅ window.bootstrap 대신 import
 
-function bootstrapModal() {
+function BootStrapModal() {
   const modalRef = useRef(null);
 
   const openModal = () => {
-    const modal = new window.bootstrap.Modal(modalRef.current);
+    const modal = new Modal(modalRef.current);
     modal.show();
   };
 
@@ -49,4 +49,4 @@ function bootstrapModal() {
   );
 }
 
-export default bootstrapModal;
+export default BootStrapModal;
