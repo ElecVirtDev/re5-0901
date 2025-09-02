@@ -1,12 +1,19 @@
 import { useRef } from "react";
 import { Offcanvas } from "bootstrap";
+import { Link } from "react-router-dom";
 
-function OffCanvas({ buttonLabel = "메뉴", title = "사이드 메뉴", children }) {
+function OffCanvas({ buttonLabel = "메뉴", title = "사이드 메뉴" }) {
   const offCanvasRef = useRef(null);
 
   const openOffCanvas = () => {
     const offcanvas = new Offcanvas(offCanvasRef.current);
     offcanvas.show();
+  };
+
+  // 메뉴 클릭 시 OffCanvas 닫기
+  const closeOffCanvas = () => {
+    const offcanvas = Offcanvas.getInstance(offCanvasRef.current);
+    if (offcanvas) offcanvas.hide();
   };
 
   return (
@@ -32,7 +39,49 @@ function OffCanvas({ buttonLabel = "메뉴", title = "사이드 메뉴", childre
           ></button>
         </div>
         <div className="offcanvas-body">
-          {children || <p>여기에 메뉴/폼/콘텐츠를 추가할 수 있습니다.</p>}
+          <ul className="list-disc pl-4 space-y-2">
+            <li>
+              <Link to="/" className="text-blue-600" onClick={closeOffCanvas}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/app2"
+                className="text-blue-600"
+                onClick={closeOffCanvas}
+              >
+                직원목록
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/dashboard"
+                className="text-blue-600"
+                onClick={closeOffCanvas}
+              >
+                대시보드
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/members"
+                className="text-blue-600"
+                onClick={closeOffCanvas}
+              >
+                회원 관리
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/settings"
+                className="text-blue-600"
+                onClick={closeOffCanvas}
+              >
+                설정
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
