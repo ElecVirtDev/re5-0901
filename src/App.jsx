@@ -11,8 +11,8 @@ function App() {
       scrollX: false,
       scrollY: false,
       columns: [
-        { header: "이름", name: "name" },
-        { header: "나이", name: "age" },
+        { header: "이름", name: "name", sortingType: "desc", sortable: true },
+        { header: "나이", name: "age", sortingType: "desc", sortable: true },
         { header: "직업", name: "job" },
         { header: "주소", name: "address" },
       ],
